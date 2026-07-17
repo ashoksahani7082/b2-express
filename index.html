@@ -2,390 +2,218 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>B2 EXPRESS - Expert Predictions</title>
-    <meta name="description" content="Expert backed predictions and tactical breakdowns.">
-    
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2 Express | Official Telegram Access</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand-red: #f83a40;
-            --brand-red-hover: #d92c31;
-            --brand-red-glow: rgba(248, 58, 64, 0.5);
-            --bg-body: #1a0b0c;
-            --bg-container: rgba(24, 18, 19, 0.70);
-            --bg-card: rgba(35, 20, 21, 0.6);
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Canvas Background */
-        #background-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            background: radial-gradient(circle at 50% 30%, #2a0f12 0%, #0c0405 90%);
+        /* Animated Background Orbs */
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s infinite alternate ease-in-out;
+            z-index: -1;
+        }
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: #2563eb;
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #0ea5e9;
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -5s;
         }
 
-        .app-container {
-            width: 100%;
-            max-width: 460px;
-            background-color: var(--bg-container);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            border-left: 1px solid rgba(255,255,255,0.03);
-            border-right: 1px solid rgba(255,255,255,0.03);
-            z-index: 1;
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
         }
 
-        .profile-container {
-            position: relative;
-            z-index: 10;
+        /* Premium Glass Card */
+        .premium-glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Rotating Border around Logo */
+        .spin-border {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent 0 340deg, #3b82f6 360deg);
+            animation: spin 3s linear infinite;
         }
         
-        .profile-glow-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 115%;
-            height: 115%;
-            background: radial-gradient(circle, var(--brand-red-glow) 0%, transparent 70%);
-            z-index: -1;
-            border-radius: 50%;
-            filter: blur(15px);
-            animation: pulse-glow 3.5s infinite alternate ease-in-out;
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
         }
 
-        .profile-image-wrapper {
-            border: 2px solid rgba(248, 58, 64, 0.8);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 0 20px rgba(0,0,0,0.9);
-            background-color: #0c0405;
-        }
-
-        @keyframes pulse-glow {
-            0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
-            100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        .name-text {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to right, #ffffff 10%, #ff8a8d 50%, var(--brand-red) 100%);
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 20px rgba(248, 58, 64, 0.3);
-            letter-spacing: 0.04em;
         }
 
-        .feature-item {
-            background-color: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-left: 4px solid var(--brand-red);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            margin-bottom: 14px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-item:hover {
-            transform: translateX(8px);
-            background-color: rgba(45, 25, 26, 0.9);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4), -2px 0 15px var(--brand-red-glow);
-            border-left-color: #ff5555;
-        }
-
-        .feature-icon-dot {
-            color: var(--brand-red);
-            text-shadow: 0 0 12px var(--brand-red);
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #ff4d4d 0%, #e61e25 50%, #b80006 100%);
-            background-size: 200% auto;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 
-                0 0 0 0 rgba(248, 58, 64, 0.7), 
-                0 10px 25px rgba(0,0,0,0.5), 
-                inset 0 2px 0 rgba(255,255,255,0.4);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 120, 120, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            animation: pulse-button 2.5s infinite;
-            outline: none;
-        }
-        
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            animation: shimmer 3s infinite;
-        }
-
+        /* Shimmer Effect for Button */
         @keyframes shimmer {
-            0% { left: -100%; }
-            20% { left: 200%; }
-            100% { left: 200%; }
+            100% { transform: translateX(100%); }
         }
 
-        @keyframes pulse-button {
-            0% { box-shadow: 0 0 0 0 rgba(248, 58, 64, 0.6), 0 10px 25px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4); }
-            70% { box-shadow: 0 0 0 12px rgba(248, 58, 64, 0), 0 10px 25px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4); }
-            100% { box-shadow: 0 0 0 0 rgba(248, 58, 64, 0), 0 10px 25px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4); }
+        /* Attention Pulse for Button */
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px 0px rgba(42,171,238, 0.4); 
+                transform: scale(1); 
+            }
+            50% { 
+                box-shadow: 0 0 35px 8px rgba(42,171,238, 0.8); 
+                transform: scale(1.03); 
+            }
         }
-        
-        .cta-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            background-position: right center;
-            box-shadow: 
-                0 15px 35px rgba(248, 58, 64, 0.6), 
-                inset 0 2px 0 rgba(255,255,255,0.6);
-            animation: none;
-        }
-
-        .cta-button:hover span {
-            letter-spacing: 0.18em;
-        }
-        
-        .cta-button:active {
-            transform: translateY(2px) scale(0.98);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.6), inset 0 4px 6px rgba(0,0,0,0.4);
-        }
-
-        .cta-icon {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .cta-button:hover .cta-icon {
-            transform: translateX(6px) translateY(-6px) scale(1.15) rotate(10deg);
-        }
-
-        .footer-logo svg {
-            color: rgba(255,255,255,0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .footer-logo:hover svg {
-            color: var(--brand-red);
-            transform: scale(1.1);
-        }
-
-        .footer-link {
-            color: #888;
-            text-decoration: none;
-            transition: all 0.2s;
-            position: relative;
-        }
-        
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--brand-red);
-            transition: width 0.3s ease;
-        }
-        
-        .footer-link:hover {
-            color: #fff;
-        }
-        
-        .footer-link:hover::after {
-            width: 100%;
+        .btn-attention {
+            animation: pulse-glow 2.5s infinite;
         }
     </style>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '27128057220198033');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=27128057220198033&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-6 relative">
 
-    <div class="app-container px-6 py-12 overflow-y-auto">
+    <!-- Background Elements -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none overflow-hidden">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <!-- Grid overlay -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50 z-[-1]"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="premium-glass w-full max-w-[420px] rounded-[32px] p-8 md:p-10 flex flex-col items-center relative z-10">
         
-        <div class="flex-grow flex flex-col items-center w-full">
-            
-            <!-- Modern SVG Logo -->
-            <div class="profile-container mb-8">
-                <div class="w-36 h-36 md:w-44 md:h-44 profile-image-wrapper relative flex items-center justify-center">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <defs>
-                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ff4d4d" />
-                                <stop offset="100%" stop-color="#8a1016" />
-                            </linearGradient>
-                            <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#ffffff" />
-                                <stop offset="100%" stop-color="#d1d5db" />
-                            </linearGradient>
-                            <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.8"/>
-                            </filter>
-                        </defs>
-                        <rect width="400" height="400" fill="#0c0405"/>
-                        <path d="M0,50 L400,250 M0,350 L400,150" stroke="#f83a40" stroke-width="2" opacity="0.1"/>
-                        <polygon points="200,35 350,120 350,280 200,365 50,280 50,120" fill="none" stroke="url(#logoGrad)" stroke-width="6" opacity="0.8" filter="url(#dropShadow)"/>
-                        <polygon points="200,60 320,130 320,270 200,340 80,270 80,130" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.3"/>
-                        <text x="200" y="210" font-family="'Montserrat', sans-serif" font-weight="900" font-size="150" fill="url(#textGrad)" text-anchor="middle" dominant-baseline="central" style="text-shadow: 0px 10px 30px rgba(248,58,64,0.7);">B2</text>
-                        <text x="200" y="325" font-family="'Montserrat', sans-serif" font-weight="800" font-size="28" fill="#f83a40" text-anchor="middle" letter-spacing="12">EXPRESS</text>
-                    </svg>
-                </div>
+        <!-- Avatar Section -->
+        <div class="relative mb-6">
+            <div class="spin-border"></div>
+            <div class="absolute inset-0 rounded-full bg-blue-500/20 blur-xl"></div>
+            <div class="relative w-28 h-28 rounded-full border-[3px] border-[#1a1a1a] bg-[#111] overflow-hidden flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                <!-- Placeholder for Logo -->
+                <span class="text-3xl font-extrabold text-white tracking-tighter text-gradient">B2</span>
             </div>
-
-            <!-- Name Title -->
-            <h1 class="text-3xl md:text-[34px] font-extrabold text-center mb-7 name-text uppercase">
-                B2 EXPRESS
-            </h1>
-
-            <!-- Top CTA Button -->
-            <button id="secure-btn-top" aria-label="Join Telegram Now" class="cta-button w-full py-[16px] rounded-2xl text-white font-extrabold text-lg md:text-xl uppercase cursor-pointer group mb-10">
-                <svg class="w-6 h-6 cta-icon drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            <!-- Verified Badge -->
+            <div class="absolute bottom-0 right-0 bg-blue-500 rounded-full p-1 border-2 border-[#111] shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="tracking-[0.12em] transition-all duration-300 drop-shadow-md">JOIN TELEGRAM NOW</span>
-            </button>
-
-            <!-- Features List -->
-            <div class="w-full flex flex-col mb-10">
-                <div class="feature-item w-full py-4 px-5 rounded-lg flex items-center cursor-default">
-                    <span class="mr-4 text-xl feature-icon-dot">&bull;</span>
-                    <span class="text-gray-100 font-medium text-[15px] md:text-base tracking-wide">Expert backed predictions</span>
-                </div>
-                <div class="feature-item w-full py-4 px-5 rounded-lg flex items-center cursor-default">
-                    <span class="mr-4 text-xl feature-icon-dot">&bull;</span>
-                    <span class="text-gray-100 font-medium text-[15px] md:text-base tracking-wide">Fan sentiment tracking</span>
-                </div>
-                <div class="feature-item w-full py-4 px-5 rounded-lg flex items-center cursor-default">
-                    <span class="mr-4 text-xl feature-icon-dot">&bull;</span>
-                    <span class="text-gray-100 font-medium text-[15px] md:text-base tracking-wide">Performance trends</span>
-                </div>
-                <div class="feature-item w-full py-4 px-5 rounded-lg flex items-center cursor-default">
-                    <span class="mr-4 text-xl feature-icon-dot">&bull;</span>
-                    <span class="text-gray-100 font-medium text-[15px] md:text-base tracking-wide">Tactical breakdowns</span>
-                </div>
             </div>
-
-            <!-- Bottom CTA Button -->
-            <button id="secure-btn-bottom" aria-label="Join Telegram Now" class="cta-button w-full py-[18px] rounded-2xl text-white font-extrabold text-lg md:text-xl uppercase cursor-pointer group mb-14">
-                <svg class="w-7 h-7 cta-icon drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-                <span class="tracking-[0.12em] transition-all duration-300 drop-shadow-md">JOIN TELEGRAM NOW</span>
-            </button>
-            
         </div>
 
-        <footer class="w-full flex flex-col items-center mt-auto">
-            
-            <!-- Modern Line Art Logo for Footer -->
-            <a href="#" aria-label="Home" class="footer-logo mb-5">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <text x="20" y="25" font-family="'Montserrat', sans-serif" font-weight="900" font-size="14" fill="currentColor" text-anchor="middle" stroke="none">B2</text>
-                </svg>
-            </a>
-
-            <p class="text-gray-500 text-xs md:text-sm font-semibold tracking-[0.2em] mb-8">
-                &copy; 2026 &bull; ALL RIGHTS RESERVED
-            </p>
-
-            <div class="w-16 border-t border-gray-700/50 mb-6"></div>
-
-            <div class="flex justify-center space-x-6 mb-8 text-sm font-medium">
-                <a href="#" rel="nofollow" class="footer-link">Privacy Policy</a>
-                <a href="#" rel="nofollow" class="footer-link">Terms of Service</a>
+        <!-- Title & Subtitle -->
+        <div class="text-center mb-7">
+            <h1 class="text-3xl font-extrabold tracking-tight text-white mb-1">B2 EXPRESS</h1>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-xs font-semibold text-gray-300 uppercase tracking-widest">Live Signals</span>
             </div>
+        </div>
 
-            <p class="text-[#666666] text-[10px] md:text-[11px] text-center leading-relaxed max-w-[95%] pb-2">
-                Disclaimer: This website is not part of the Facebook website or Meta Platforms, Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of META Platforms, Inc.
-            </p>
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-3 w-full mb-6">
+            <div class="bg-white/[0.03] border border-white/5 p-4 rounded-2xl text-center hover:bg-white/[0.05] transition-colors">
+                <p class="text-2xl font-bold text-white mb-0.5">20.7K</p>
+                <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Subscribers</p>
+            </div>
+            <div class="bg-white/[0.03] border border-white/5 p-4 rounded-2xl text-center hover:bg-white/[0.05] transition-colors">
+                <p class="text-2xl font-bold text-blue-400 mb-0.5">98%</p>
+                <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Accuracy</p>
+            </div>
+        </div>
 
-        </footer>
+        <!-- Feature List -->
+        <div class="w-full space-y-3 mb-8">
+            <div class="flex items-center gap-3 text-sm text-gray-200">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <span class="font-medium">India's No.1 Aviator Analyst</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-200">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <span class="font-medium">15,000+ Active Members</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-200">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <span class="font-medium">Daily Real-Time Predictions</span>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="w-full relative mt-4 mb-2 flex justify-center">
+            <button id="joinBtn" 
+                    class="btn-attention relative overflow-hidden w-auto min-w-[300px] max-w-full bg-[#2AABEE] hover:bg-[#2298d6] text-white font-bold text-[14px] sm:text-[15px] py-4 px-8 rounded-full transition-all duration-300 active:translate-y-0 group flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(42,171,238,0.5)]">
+                
+                <!-- Telegram Icon SVG -->
+                <svg id="btnIcon" class="w-5 h-5 flex-shrink-0 relative z-20 transition-transform group-hover:scale-110 group-hover:-rotate-12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+
+                <span id="btnText" class="relative z-20 tracking-wide whitespace-nowrap">JOIN FREE TELEGRAM CHANNEL</span>
+                
+                <!-- Shimmer Animation -->
+                <div class="absolute top-0 -inset-full h-full w-1/2 z-10 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            </button>
+        </div>
 
     </div>
 
     <script>
-        // --- ANTI-BOT SECURITY SYSTEM ---
-        function handleSecureClick(event) {
-            // Check for trusted human interaction
-            if (event && !event.isTrusted) {
-                console.warn("Security Alert: Automated bot click detected and blocked.");
-                return false;
-            }
+        const btn = document.getElementById('joinBtn');
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        let isClicked = false;
 
-            // Dynamic construction of destination URL
-            const part1 = "https://t.";
-            const part2 = "me/";
-            const channelId = "+0pvspZRRCDk3Mjk1"; 
-            const secureUrl = part1 + part2 + channelId;
-
-            // Safe redirect
-            const newWindow = window.open(secureUrl, '_blank', 'noopener,noreferrer');
-            if (newWindow) {
-                newWindow.opener = null;
-            }
-        }
-
-        // Attach listeners securely after DOM is fully parsed
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnTop = document.getElementById('secure-btn-top');
-            const btnBottom = document.getElementById('secure-btn-bottom');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent immediate navigation if wrapped in <a>
             
-            if(btnTop) btnTop.addEventListener('click', handleSecureClick);
-            if(btnBottom) btnBottom.addEventListener('click', handleSecureClick);
+            if (isClicked) return; 
+            
+            isClicked = true;
+            
+            // Visual feedback
+            btn.classList.remove('btn-attention'); // Stop the continuous pulse
+            btnText.innerText = 'JOINING...';
+            btnIcon.style.display = 'none'; // Hide icon while joining
+            
+            // Disable button styles
+            btn.classList.remove('hover:-translate-y-1', 'hover:shadow-[0_10px_40px_-10px_rgba(42,171,238,0.6)]');
+            btn.classList.add('opacity-75', 'cursor-wait');
+            
+            // Simulate network request or redirect
+            setTimeout(() => {
+                // Replace this URL with your actual Telegram link
+                window.location.href = 'https://t.me/your_channel_link';
+            }, 800);
         });
     </script>
 </body>

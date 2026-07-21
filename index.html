@@ -3,138 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 EXPRESS - Official Telegram Channel</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>B2 Express | Premium Aviator Signals</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Tailwind Configuration for Animations & Colors -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#0088cc', // Official Telegram Blue
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'blob': 'blob 7s infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Custom CSS for Premium Glassmorphism Effect -->
     <style>
         body {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Clean white background */
+            color: #333333;
+        }
+
+        /* Enhanced glow and float animation for the logo */
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(250, 204, 21, 0.4);
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(250, 204, 21, 0.9), 0 0 20px rgba(250, 204, 21, 0.5) inset;
+                transform: translateY(-8px) scale(1.04);
+            }
+        }
+
+        .logo-container {
+            animation: glowPulse 3s infinite ease-in-out;
+        }
+
+        /* Smooth continuous pulse for the button */
+        @keyframes buttonPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 10px 25px rgba(250, 204, 21, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+            }
+        }
+
+        .btn-pulse {
+            animation: buttonPulse 2.5s infinite ease-in-out;
+            transition: all 0.3s ease;
         }
         
-        .glass-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
-        
-        .animation-delay-2000 {
-            animation-delay: 2s;
+        .btn-pulse:hover {
+            animation: none; /* Stop pulsing on hover */
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(250, 204, 21, 0.7);
         }
     </style>
 
-    <!-- ========================================== -->
-    <!-- 🔥 PASTE YOUR TRACKING PIXEL CODE HERE 🔥  -->
-    <!-- (e.g., Facebook Pixel, Google Analytics, etc.) -->
-    
-    <!-- 
+    <!-- Meta Pixel Code -->
     <script>
-      // Your pixel script goes here
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2250424609107124');
+    fbq('track', 'PageView');
     </script>
-    -->
-    
-    <!-- ========================================== -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2250424609107124&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
-<body class="min-h-screen flex flex-col text-gray-800 antialiased selection:bg-brand selection:text-white relative overflow-hidden">
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
 
-    <!-- Decorative Background Elements -->
-    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob z-0"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000 z-0"></div>
-
-    <!-- Navigation / Header -->
-    <nav class="w-full py-5 px-6 md:px-12 flex justify-between items-center relative z-10">
-        <div class="text-2xl font-extrabold tracking-tighter text-gray-900">
-            B2 <span class="text-brand">EXPRESS</span>
-        </div>
-    </nav>
-
-    <!-- Main Hero Section -->
-    <main class="flex-grow flex items-center justify-center px-4 pt-10 pb-20 relative z-10">
+    <main class="w-full max-w-md mx-auto flex flex-col items-center">
         
-        <!-- Glassmorphism Container -->
-        <div class="glass-card w-full max-w-3xl rounded-3xl p-8 md:p-14 text-center relative opacity-0 animate-fade-in-up">
-            
-            <!-- Telegram Icon -->
-            <div class="w-20 h-20 bg-gradient-to-tr from-brand to-blue-400 rounded-full mx-auto flex items-center justify-center mb-8 shadow-lg shadow-brand/40 hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <svg class="w-10 h-10 text-white translate-x-[-2px] translate-y-[2px]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.892-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
+        <!-- Logo Image Container -->
+        <div class="logo-container w-44 h-44 rounded-full flex items-center justify-center mb-6 relative overflow-hidden">
+            <!-- 
+                ↓↓↓ ADD YOUR LOGO HERE ↓↓↓ 
+                Replace the 'src' link below with the link to your own logo image.
+            -->
+            <img 
+                src="https://placehold.co/400x400/000000/FACC15?text=B2+Express" 
+                alt="B2 Express Logo" 
+                class="w-full h-full object-cover rounded-full border-2 border-yellow-500/20"
+            />
+        </div>
+
+        <!-- Titles -->
+        <h1 class="text-4xl font-bold text-yellow-400 mb-2">B2 Express</h1>
+        <h2 class="text-xs font-semibold tracking-[0.3em] text-gray-800 uppercase mb-8">Premium Aviator Signals</h2>
+
+        <!-- Stats -->
+        <div class="flex w-full justify-between px-4 mb-10">
+            <div class="text-center">
+                <div class="text-3xl font-bold text-yellow-400 mb-1">100K+</div>
+                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Members</div>
             </div>
-
-            <!-- Headline -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-5">
-                Welcome to <br class="md:hidden" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">B2 EXPRESS</span>
-            </h1>
-            
-            <!-- Subtitle -->
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-                Fastest updates, premium insights, aur exclusive content direct aapke Telegram par. Hamari community join karein aur hamesha aage rahein.
-            </p>
-
-            <!-- Call to Action Button -->
-            <!-- Note: Replace '#' in href with your actual Telegram Channel Link -->
-            <a href="#" target="_blank" class="inline-flex items-center justify-center gap-3 px-10 py-4 text-lg font-semibold text-white bg-brand rounded-full hover:bg-blue-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto">
-                <span>Join Channel Now</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-            </a>
-
-            <!-- Social Proof / Trust Badge -->
-            <div class="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500 font-medium">
-                <span class="flex h-3 w-3 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                </span>
-                Join thousands of active members today
+            <div class="text-center">
+                <div class="text-3xl font-bold text-yellow-400 mb-1">99%</div>
+                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Accuracy</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold text-yellow-400 mb-1">24/7</div>
+                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Support</div>
             </div>
         </div>
+
+        <!-- CTA Button -->
+        <a href="https://t.me/+1iCoRfxzlu40OGU1" target="_blank" rel="noopener noreferrer" class="btn-pulse w-full max-w-[320px] bg-gradient-to-b from-yellow-300 to-yellow-500 text-gray-900 font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 mb-10">
+            <span>🚀</span> JOIN CHANNEL
+        </a>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-2 gap-4 w-full max-w-[340px] mb-12">
+            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
+                <span>🚀</span> Live Signals
+            </div>
+            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
+                <span>📈</span> High Accuracy
+            </div>
+            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
+                <span>🔑</span> VIP Access
+            </div>
+            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
+                <span>⚡</span> Instant Updates
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-xs text-gray-400 text-center">
+            Join 100,000+ Members Already Winning with B2 Express
+        </p>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full py-6 text-center text-gray-500 text-sm font-medium relative z-10">
-        <p>&copy; 2026 B2 EXPRESS. All rights reserved.</p>
-    </footer>
-
-    <!-- ========================================== -->
-    <!-- 🔥 (OPTIONAL) PASTE `<body>` PIXEL SCRIPT HERE 🔥 -->
-    <!-- (Some pixels like Meta/Facebook require an iframe fallback here) -->
-    <!-- ========================================== -->
-    
 </body>
 </html>

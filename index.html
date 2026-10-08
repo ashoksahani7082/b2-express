@@ -3,143 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 Express | Premium Aviator Signals</title>
+    <title>B2 EXPRESS - Join Telegram</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        pageBg: '#050505',
+                        cardBg: '#111111',
+                        brandRed: '#e50000',     /* Deep Red matching the logo */
+                        brandRedGlow: '#ff1a1a', /* Brighter red for glows */
+                        textMuted: '#9ca3af'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* Clean white background */
-            color: #333333;
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% -20%, rgba(229, 0, 0, 0.1) 0%, rgba(5, 5, 5, 1) 60%);
         }
 
-        /* Enhanced glow and float animation for the logo */
-        @keyframes glowPulse {
-            0%, 100% {
-                box-shadow: 0 0 30px rgba(250, 204, 21, 0.4);
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                box-shadow: 0 0 60px rgba(250, 204, 21, 0.9), 0 0 20px rgba(250, 204, 21, 0.5) inset;
-                transform: translateY(-8px) scale(1.04);
-            }
+        .logo-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #e50000;
+            object-fit: cover;
+            background: #000;
+            box-shadow: 0 0 30px rgba(229, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .logo-container {
-            animation: glowPulse 3s infinite ease-in-out;
-        }
-
-        /* Smooth continuous pulse for the button */
-        @keyframes buttonPulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 10px 25px rgba(250, 204, 21, 0.6);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
-            }
-        }
-
-        .btn-pulse {
-            animation: buttonPulse 2.5s infinite ease-in-out;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-pulse:hover {
-            animation: none; /* Stop pulsing on hover */
+        .logo-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(250, 204, 21, 0.7);
+            box-shadow: 0 0 40px rgba(229, 0, 0, 0.7);
+        }
+
+        #telegramJoinBtn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none !important;
+            box-shadow: none !important;
         }
     </style>
 
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4578889359000884');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4578889359000884&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-</head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
-
-    <main class="w-full max-w-md mx-auto flex flex-col items-center">
+    <!-- ========================= -->
+    <!-- META PIXEL (UNTOUCHED) -->
+    <!-- ========================= -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {
+            if(f.fbq)return;
+            n=f.fbq=function(){
+                n.callMethod ?
+                n.callMethod.apply(n,arguments) :
+                n.queue.push(arguments)
+            };
+            if(!f._fbq)f._fbq=n;
+            n.push=n;
+            n.loaded=!0;
+            n.version='2.0';
+            n.queue=[];
+            t=b.createElement(e);
+            t.async=!0;
+            t.src=v;
+            s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
         
-        <!-- Logo Image Container -->
-        <div class="logo-container w-44 h-44 rounded-full flex items-center justify-center mb-6 relative overflow-hidden">
-            <!-- 
-                ↓↓↓ ADD YOUR LOGO HERE ↓↓↓ 
-                Replace the 'src' link below with the link to your own logo image.
-            -->
+        fbq('init', '924764623699511');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=924764623699511&ev=PageView&noscript=1" />
+    </noscript>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col items-center justify-center p-4 font-sans relative">
+
+    <!-- ========================= -->
+    <!-- MAIN CARD CONTENT -->
+    <!-- ========================= -->
+    <div class="relative w-full max-w-sm bg-cardBg rounded-3xl overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.8)] border border-gray-800 flex flex-col items-center pb-8 z-10">
+        
+        <!-- Top Red Gradient Accent -->
+        <div class="h-2 w-full bg-gradient-to-r from-red-900 via-brandRed to-red-900 mb-8"></div>
+
+        <!-- ========================================== -->
+        <!-- 🖼️ UPDATE YOUR LOGO HERE 🖼️ -->
+        <!-- Yahan par aapki photo ka naam daala gaya hai -->
+        <!-- ========================================== -->
+        <div class="mb-5 relative rounded-full p-1 bg-gradient-to-b from-gray-800 to-black inline-block">
             <img 
-                src="logo.jpg" 
-                alt="B2 Express Logo" 
-                class="w-full h-full object-cover rounded-full border-2 border-yellow-500/20"
-            />
+                src="b2 logo.jpg" 
+                alt="B2 EXPRESS Logo" 
+                class="logo-image"
+                onerror="this.src='https://placehold.co/140x140/000000/e50000?text=B2'"
+            >
+        </div>
+        <!-- ========================================== -->
+
+        <!-- LIVE Badge (Red Theme) -->
+        <div class="bg-red-950/50 border border-brandRed/40 text-brandRed text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 mb-4 tracking-wider uppercase shadow-[0_0_10px_rgba(229,0,0,0.2)]">
+            <div class="w-2 h-2 bg-brandRed rounded-full animate-pulse shadow-[0_0_5px_#e50000]"></div>
+            LIVE NOW
         </div>
 
-        <!-- Titles -->
-        <h1 class="text-4xl font-bold text-yellow-400 mb-2">B2 Express</h1>
-        <h2 class="text-xs font-semibold tracking-[0.3em] text-gray-800 uppercase mb-8">Premium Aviator Signals</h2>
+        <!-- HEADING -->
+        <h1 class="text-3xl font-black text-center text-white tracking-widest mb-1 uppercase">
+            B2 <span class="text-brandRed">EXPRESS</span>
+        </h1>
 
-        <!-- Stats -->
-        <div class="flex w-full justify-between px-4 mb-10">
-            <div class="text-center">
-                <div class="text-3xl font-bold text-yellow-400 mb-1">100K+</div>
-                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Members</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-bold text-yellow-400 mb-1">99%</div>
-                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Accuracy</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-bold text-yellow-400 mb-1">24/7</div>
-                <div class="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Support</div>
-            </div>
-        </div>
-
-        <!-- CTA Button -->
-        <a href="https://t.me/+1iCoRfxzlu40OGU1" target="_blank" rel="noopener noreferrer" class="btn-pulse w-full max-w-[320px] bg-gradient-to-b from-yellow-300 to-yellow-500 text-gray-900 font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 mb-10">
-            <span>🚀</span> JOIN CHANNEL
-        </a>
-
-        <!-- Features Grid -->
-        <div class="grid grid-cols-2 gap-4 w-full max-w-[340px] mb-12">
-            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
-                <span>🚀</span> Live Signals
-            </div>
-            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
-                <span>📈</span> High Accuracy
-            </div>
-            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
-                <span>🔑</span> VIP Access
-            </div>
-            <div class="border border-yellow-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-2 bg-white text-gray-600 text-sm font-medium hover:bg-yellow-50 transition-colors">
-                <span>⚡</span> Instant Updates
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <p class="text-xs text-gray-400 text-center">
-            Join 100,000+ Members Already Winning with B2 Express
+        <!-- SUBSCRIBERS -->
+        <p class="text-gray-400 text-sm font-semibold mb-6 tracking-wide">
+            <span class="text-white font-bold">70,301+</span> active members
         </p>
 
-    </main>
+        <!-- FEATURES / BULLET POINTS -->
+        <div class="flex items-center gap-6 text-sm font-medium text-gray-300 mb-7">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-brandRed"></i>
+                100% Free
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-brandRed"></i>
+                Instant Access
+            </div>
+        </div>
 
+        <!-- COUNTDOWN -->
+        <div class="bg-black/50 border border-gray-800 px-5 py-2 rounded-xl text-gray-400 text-xs font-semibold mb-4 flex items-center gap-2">
+            <span>OFFER ENDS IN:</span>
+            <span class="text-brandRed text-base font-bold tracking-widest" id="countdown">14:59</span>
+        </div>
+
+        <!-- TELEGRAM BUTTON -->
+        <button 
+            id="telegramJoinBtn" 
+            type="button" 
+            class="w-10/12 bg-gradient-to-r from-red-700 to-brandRed text-white font-extrabold py-4 px-6 rounded-full text-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(229,0,0,0.4)] hover:shadow-[0_0_30px_rgba(229,0,0,0.6)] uppercase tracking-widest flex justify-center items-center gap-3 border border-red-500/50"
+        >
+            <i class="fa-solid fa-plane-departure text-xl"></i>
+            JOIN TELEGRAM
+        </button>
+
+        <p class="text-gray-600 text-[10px] mt-4 uppercase tracking-widest font-semibold">
+            Fly High. Cash Big.
+        </p>
+    </div>
+
+    <!-- ========================= -->
+    <!-- COUNTDOWN SCRIPT (UNTOUCHED) -->
+    <!-- ========================= -->
+    <script>
+        let timeInSeconds = 15 * 60;
+        const countdownEl = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeInSeconds / 60);
+            let seconds = timeInSeconds % 60;
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            let displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+            if (countdownEl) {
+                countdownEl.innerHTML = `${displayMinutes}:${seconds}`;
+            }
+            if (timeInSeconds > 0) {
+                timeInSeconds--;
+            } else {
+                timeInSeconds = 0;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+    <!-- ========================= -->
+    <!-- TELEGRAM & META SCRIPT (UNTOUCHED LOGIC) -->
+    <!-- ========================= -->
+    <script>
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function getFBCLID() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('fbclid');
+        }
+
+        function getFBC() {
+            const existingFbc = getCookie('_fbc');
+            if (existingFbc) return existingFbc;
+
+            const fbclid = getFBCLID();
+            if (!fbclid) return null;
+
+            return ('fb.1.' + Date.now() + '.' + fbclid);
+        }
+
+        const telegramButton = document.getElementById('telegramJoinBtn');
+
+        if (telegramButton) {
+            telegramButton.addEventListener('click', async function () {
+                const button = this;
+
+                // Disable button
+                button.disabled = true;
+                
+                // Show connecting spinner
+                button.innerHTML = `
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    CONNECTING...
+                `;
+
+                try {
+                    const fbclid = getFBCLID();
+                    const fbp = getCookie('_fbp');
+                    const fbc = getFBC();
+
+                    console.log('Meta tracking data:', { fbclid: fbclid, fbc: fbc, fbp: fbp });
+
+                    const response = await fetch('/api/telegram-link', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            fbclid: fbclid,
+                            fbc: fbc,
+                            fbp: fbp
+                        })
+                    });
+
+                    const result = await response.json();
+                    console.log('Telegram API response:', result);
+
+                    if (!response.ok || !result.ok || !result.inviteLink) {
+                        throw new Error(result.error || 'Telegram link creation failed');
+                    }
+
+                    if (typeof fbq === 'function') {
+                        fbq('trackCustom', 'TelegramClick');
+                    }
+
+                    window.location.href = result.inviteLink;
+
+                } catch (error) {
+                    console.error('Telegram tracking error:', error);
+
+                    // Restore button with correct new design
+                    button.disabled = false;
+                    button.innerHTML = `
+                        <i class="fa-solid fa-plane-departure text-xl"></i>
+                        JOIN TELEGRAM
+                    `;
+
+                    alert('Please try again.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

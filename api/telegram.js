@@ -96,21 +96,27 @@ export default async function handler(req, res) {
         console.error("Telegram join request Redis save failed:", saveError.message);
       }
 
-      // Fire Subscribe for every Telegram join request, even when Redis attribution is missing.
-      // A stable event ID prevents retries of the same Telegram update from creating unrelated event IDs.
-      const eventId = attribution?.click_id
-        ? `subscriber_${attribution.click_id}`
-        : `subscriber_tg_${request.chat?.id || "chat"}_${request.from?.id || "user"}_${request.date || "time"}`;
-      try {
-        const metaResult = await sendMetaSubscribe(attribution, request.date, eventId, request.from?.id);
-        console.log("Meta CAPI Subscribe sent", {
-          event_id: eventId,
-          click_id: attribution?.click_id || null,
-          events_received: metaResult.events_received ?? null,
-          matched_by_click_id: Boolean(attribution?.click_id)
+      // Match the Kundan flow: send Subscribe only when this join request
+      // can be linked to a landing-page click via the saved attribution record.
+      if (attribution?.click_id) {
+        const eventId = `subscriber_${attribution.click_id}`;
+        try {
+          const metaResult = await sendMetaSubscribe(attribution, request.date || Math.floor(Date.now() / 1000), eventId, request.from?.id);
+          console.log("Meta CAPI Subscribe sent", {
+            event_id: eventId,
+            click_id: attribution.click_id,
+            events_received: metaResult.events_received ?? null,
+            matched_by_click_id: true
+          });
+        } catch (metaError) {
+          console.error("Meta CAPI Subscribe failed:", metaError.message);
+        }
+      } else {
+        console.log("Meta CAPI Subscribe skipped: no click attribution found", {
+          chat_id: request.chat?.id || null,
+          user_id: request.from?.id || null,
+          invite_link_present: Boolean(inviteLink)
         });
-      } catch (metaError) {
-        console.error("Meta CAPI Subscribe failed:", metaError.message);
       }
 
       console.log("Telegram join request saved", {

@@ -21,6 +21,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .card:before{content:"";position:absolute;top:0;left:0;right:0;height:13px;background:linear-gradient(90deg,#9f1010,#ed1717,#7e0a0a)}
 .logo-wrap{position:relative;width:246px;height:246px;margin:0 auto 43px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle,#390909 0%,#100909 63%,#080808 70%);border:7px solid #e50914;box-shadow:0 0 0 5px #3b1014,0 0 35px #ed101c55,inset 0 0 20px #e5091430}
 .logo-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-radius:50%;background:radial-gradient(ellipse at 50% 25%,#321010,#070707 65%);overflow:hidden}
+.logo-image{display:block;width:100%;height:100%;padding:8px;object-fit:contain;border-radius:50%}
 .logo-plane{position:absolute;top:18px;font-size:55px;color:#f31a22;transform:rotate(-13deg);text-shadow:0 0 18px #f00}
 .logo-title{position:relative;margin-top:25px;font-weight:1000;font-style:italic;line-height:.86;letter-spacing:-5px;font-size:76px;color:#fff;text-shadow:3px 4px 0 #6f090d}
 .logo-title span{color:#ed101a}
@@ -47,13 +48,7 @@ h1 span{color:#ed101a}
 <body>
 <main class="card">
   <div class="logo-wrap" aria-label="B2 Express logo">
-    <div class="logo-inner">
-      <i class="fa-solid fa-plane logo-plane" aria-hidden="true"></i>
-      <div class="logo-title">B2<span>EX</span></div>
-      <div class="logo-sub">EXPRESS</div>
-      <div class="logo-lines"></div>
-      <div style="font-size:7px;font-weight:900;letter-spacing:2px;color:#9ca3af;margin-top:7px">FAST. BOLD. FEARLESS.</div>
-    </div>
+    <img class="logo-image" src="./b2%20logo.jpg" alt="B2 Express original logo">
   </div>
   <div class="live"><span class="live-dot"></span> LIVE NOW</div>
   <h1>B2 <span>EXPRESS</span></h1>

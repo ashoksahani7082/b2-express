@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
     const clickId = crypto.randomUUID().replaceAll("-", "");
     const linkName = `b2express_${clickId.slice(0, 24)}`;
-    const allowedPixels = ["837475619388782", "1085869497595179", "1487797333196706", "1492869782752825"];
+    const allowedPixels = ["837475619388782"];
     const requestedPixel = clean(body.pixel_id, 30);
     const selectedPixel = allowedPixels.includes(requestedPixel) ? requestedPixel : "837475619388782";
     const attribution = {

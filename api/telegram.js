@@ -62,9 +62,13 @@ export default async function handler(req, res) {
       let attribution = null;
 
       if (inviteLink) {
-        const raw = await redisCommand(["GET", `invite:${inviteLink}`]);
-        if (raw) {
-          try { attribution = JSON.parse(raw); } catch { attribution = null; }
+        try {
+          const raw = await redisCommand(["GET", `invite:${inviteLink}`]);
+          if (raw) {
+            try { attribution = JSON.parse(raw); } catch { attribution = null; }
+          }
+        } catch (lookupError) {
+          console.error("Redis attribution lookup failed:", lookupError.message);
         }
       }
 
@@ -86,7 +90,11 @@ export default async function handler(req, res) {
       };
 
       const recordId = `${Date.now()}_${request.from?.id || "unknown"}`;
-      await redisCommand(["SET", `subscriber:${recordId}`, JSON.stringify(subscriber), "EX", 60 * 60 * 24 * 90]);
+      try {
+        await redisCommand(["SET", `subscriber:${recordId}`, JSON.stringify(subscriber), "EX", 60 * 60 * 24 * 90]);
+      } catch (saveError) {
+        console.error("Telegram join request Redis save failed:", saveError.message);
+      }
 
       // Fire Subscribe for every Telegram join request, even when Redis attribution is missing.
       // A stable event ID prevents retries of the same Telegram update from creating unrelated event IDs.

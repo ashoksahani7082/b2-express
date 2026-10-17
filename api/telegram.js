@@ -13,7 +13,7 @@ async function redisCommand(command) {
   return data.result;
 }
 
-async function sendMetaSubscribe(attribution, eventTime, eventId) {
+async function sendMetaSubscribe(attribution, eventTime, eventId, telegramUserId) {
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
   const pixelId = process.env.META_PIXEL_ID || "837475619388782";
   const apiVersion = process.env.META_GRAPH_API_VERSION || "v24.0";
@@ -23,8 +23,10 @@ async function sendMetaSubscribe(attribution, eventTime, eventId) {
   const userData = {};
   if (attribution?.fbp) userData.fbp = attribution.fbp;
   if (attribution?.fbc) userData.fbc = attribution.fbc;
-  if (attribution?.click_id) {
-    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(attribution.click_id));
+  // Always provide a stable external_id: prefer the landing click ID, otherwise hash the Telegram user ID.
+  const externalId = attribution?.click_id || (telegramUserId ? String(telegramUserId) : null);
+  if (externalId) {
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(externalId.trim().toLowerCase()));
     userData.external_id = Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
   }
 
@@ -86,14 +88,21 @@ export default async function handler(req, res) {
       const recordId = `${Date.now()}_${request.from?.id || "unknown"}`;
       await redisCommand(["SET", `subscriber:${recordId}`, JSON.stringify(subscriber), "EX", 60 * 60 * 24 * 90]);
 
-      if (attribution?.click_id) {
-        const eventId = `subscriber_${attribution.click_id}`;
-        try {
-          await sendMetaSubscribe(attribution, request.date, eventId);
-          console.log("Meta CAPI Subscribe sent", { event_id: eventId, click_id: attribution.click_id });
-        } catch (metaError) {
-          console.error("Meta CAPI Subscribe failed:", metaError.message);
-        }
+      // Fire Subscribe for every Telegram join request, even when Redis attribution is missing.
+      // A stable event ID prevents retries of the same Telegram update from creating unrelated event IDs.
+      const eventId = attribution?.click_id
+        ? `subscriber_${attribution.click_id}`
+        : `subscriber_tg_${request.chat?.id || "chat"}_${request.from?.id || "user"}_${request.date || "time"}`;
+      try {
+        const metaResult = await sendMetaSubscribe(attribution, request.date, eventId, request.from?.id);
+        console.log("Meta CAPI Subscribe sent", {
+          event_id: eventId,
+          click_id: attribution?.click_id || null,
+          events_received: metaResult.events_received ?? null,
+          matched_by_click_id: Boolean(attribution?.click_id)
+        });
+      } catch (metaError) {
+        console.error("Meta CAPI Subscribe failed:", metaError.message);
       }
 
       console.log("Telegram join request saved", {

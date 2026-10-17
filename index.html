@@ -8,10 +8,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- Meta Pixel -->
+<!-- Meta Pixel: choose one approved pixel per ad URL with ?pixel_id=PIXEL_ID -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=function(){};n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','837475619388782');fbq('track','PageView');
+(function(){
+  var allowedPixels=['837475619388782','1085869497595179','1487797333196706'];
+  var requestedPixel=new URLSearchParams(window.location.search).get('pixel_id');
+  var selectedPixel=allowedPixels.includes(requestedPixel)?requestedPixel:'837475619388782';
+  window.B2_SELECTED_PIXEL_ID=selectedPixel;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=function(){};n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',selectedPixel);fbq('track','PageView');
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=837475619388782&ev=PageView&noscript=1" alt=""></noscript>
 <style>
@@ -73,7 +79,7 @@ btn.addEventListener('click',async()=>{
     const params=new URLSearchParams(location.search);let referrerHost=null;try{if(document.referrer)referrerHost=new URL(document.referrer).hostname}catch{}
     const fbp=document.cookie.match(/(?:^|; )_fbp=([^;]+)/)?.[1]||null;
     let fbc=document.cookie.match(/(?:^|; )_fbc=([^;]+)/)?.[1]||null;const fbclid=params.get('fbclid');if(!fbc&&fbclid)fbc='fb.1.'+Date.now()+'.'+fbclid;
-    const response=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({source:params.get('utm_source')||(fbclid?'facebook':null),campaign:params.get('utm_campaign'),medium:params.get('utm_medium'),content:params.get('utm_content'),term:params.get('utm_term'),fbclid,landing_referrer:referrerHost,landing_url:location.href,fbp,fbc,user_agent:navigator.userAgent})});
+    const response=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pixel_id:window.B2_SELECTED_PIXEL_ID||'837475619388782',source:params.get('utm_source')||(fbclid?'facebook':null),campaign:params.get('utm_campaign'),medium:params.get('utm_medium'),content:params.get('utm_content'),term:params.get('utm_term'),fbclid,landing_referrer:referrerHost,landing_url:location.href,fbp,fbc,user_agent:navigator.userAgent})});
     const data=await response.json();if(!response.ok||!data.ok||!data.invite_link)throw new Error(data.error||'Could not create invite');
     location.href=data.invite_link;
   }catch(e){console.error('Invite creation failed:',e);statusEl.textContent='Could not create invite. Check your connection and try again.';buttonText.textContent='TRY AGAIN';btn.disabled=false}

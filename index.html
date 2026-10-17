@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>B2 EXPRESS — Join on Telegram</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','837475619388782');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=837475619388782&ev=PageView&noscript=1" alt=""></noscript>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{font-family:Poppins,sans-serif;background:#050505;margin:0;min-height:100vh;overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(125px);opacity:.38;pointer-events:none;z-index:0;animation:float 12s ease-in-out infinite alternate}
+.orb.one{width:420px;height:420px;background:#d4af37;top:-140px;left:-130px}.orb.two{width:450px;height:450px;background:#8b1e2d;bottom:-190px;right:-120px;animation-delay:-5s}
+@keyframes float{to{transform:translate(55px,70px) scale(1.12)}}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes pulse{0%{box-shadow:0 0 0 0 #d4af3766}70%{box-shadow:0 0 0 20px #d4af3700}100%{box-shadow:0 0 0 0 #d4af3700}}
+.glass{background:linear-gradient(145deg,rgba(30,24,14,.78),rgba(10,10,10,.94));backdrop-filter:blur(22px);border:1px solid #d4af3738;box-shadow:0 24px 70px #0009}
+.ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(transparent 0 38%,#d4af37 72%,#8b1e2d);animation:rotate 2.5s linear infinite}.ring:after{content:"";position:absolute;inset:3px;background:#101010;border-radius:50%}
+.gold{color:#d4af37;text-shadow:0 0 12px #d4af3780}.join{animation:pulse 2.5s infinite}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="flex items-center justify-center relative px-4 py-8">
+<div class="orb one"></div><div class="orb two"></div>
+<main class="glass relative z-10 w-full max-w-md rounded-[2rem] p-7 sm:p-8 flex flex-col items-center text-center">
+  <div class="relative w-32 h-32 mb-6 mt-2 flex items-center justify-center">
+    <div class="ring"></div>
+    <div class="relative z-10 w-[116px] h-[116px] bg-[#101010] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(212,175,55,.3)]">
+      <i class="fa-brands fa-telegram text-[4.5rem] text-[#D4AF37]" aria-hidden="true"></i>
+    </div>
+  </div>
+  <p class="text-xs tracking-[.35em] uppercase text-[#d4af37] font-bold mb-2">Welcome to</p>
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">B2 EXPRESS</h1>
+  <p class="text-gray-300 text-sm leading-6 mb-6">Join our Telegram community and stay connected.</p>
+  <div class="flex items-center justify-center gap-4 w-full mb-7 text-xs sm:text-sm font-semibold text-gray-200 bg-white/5 py-3 px-3 rounded-xl border border-white/10">
+    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-[#d4af37]"></i> Secure access</span>
+    <span class="w-px h-5 bg-white/20"></span>
+    <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-[#d4af37]"></i> Quick join</span>
+  </div>
+  <div class="w-full bg-black/50 border border-[#D4AF37]/40 rounded-2xl p-4 flex items-center justify-center gap-3 mb-7">
+    <span class="text-gray-300 text-xs font-bold tracking-[.16em] uppercase">Your invite is ready in</span>
+    <span id="timer" class="gold font-extrabold text-2xl tabular-nums">10:00</span>
+  </div>
+  <button id="joinBtn" class="join w-full bg-[#D4AF37] hover:bg-[#B8941F] text-black font-extrabold py-4 px-5 rounded-2xl flex items-center justify-center gap-3 transition duration-300 hover:-translate-y-1 border border-[#F0D778]/40">
+    <i class="fa-brands fa-telegram text-2xl" aria-hidden="true"></i><span id="buttonText" class="text-sm sm:text-base tracking-wider uppercase">JOIN B2 EXPRESS</span>
+  </button>
+  <p id="status" role="status" aria-live="polite" class="text-xs text-gray-300 mt-4 min-h-5"></p>
+  <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-widest"><i class="fa-solid fa-lock mr-1"></i> Secure Telegram invite</p>
+</main>
+<script>
+const timer=document.getElementById('timer');let seconds=600;
+function tick(){const m=Math.floor(seconds/60),s=seconds%60;timer.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(seconds>0)seconds--}
+tick();setInterval(tick,1000);
+const btn=document.getElementById('joinBtn'),buttonText=document.getElementById('buttonText'),statusEl=document.getElementById('status');
+btn.addEventListener('click',async()=>{
+  btn.disabled=true;btn.style.opacity='.75';buttonText.textContent='PREPARING INVITE…';statusEl.textContent='Creating your secure Telegram invite link…';
+  try{
+    const params=new URLSearchParams(location.search);
+    let referrerHost=null;try{if(document.referrer)referrerHost=new URL(document.referrer).hostname}catch{}
+    const fbp=document.cookie.match(/(?:^|; )_fbp=([^;]+)/)?.[1]||null;
+    let fbc=document.cookie.match(/(?:^|; )_fbc=([^;]+)/)?.[1]||null;
+    const fbclid=params.get('fbclid');if(!fbc&&fbclid)fbc='fb.1.'+Date.now()+'.'+fbclid;
+    const response=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({
+      source:params.get('utm_source')||(fbclid?'facebook':null),campaign:params.get('utm_campaign'),medium:params.get('utm_medium'),content:params.get('utm_content'),term:params.get('utm_term'),fbclid,landing_referrer:referrerHost,landing_url:location.href,fbp,fbc,user_agent:navigator.userAgent
+    })});
+    const data=await response.json();if(!response.ok||!data.ok||!data.invite_link)throw new Error(data.error||'Could not create invite');
+    location.href=data.invite_link;
+  }catch(e){console.error('Invite creation failed:',e);statusEl.textContent='Invite could not be created right now. Please try again in a moment.';buttonText.textContent='TRY AGAIN';btn.disabled=false;btn.style.opacity='1'}
+});
+</script>
+</body>
+</html>

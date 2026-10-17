@@ -3,75 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080808">
-<title>B2 EXPRESS — Join on Telegram</title>
+<meta name="theme-color" content="#080606">
+<title>B2 EXPRESS — Join Telegram</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','837475619388782');
-fbq('track','PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=function(){};n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','837475619388782');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=837475619388782&ev=PageView&noscript=1" alt=""></noscript>
 <style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{font-family:Poppins,sans-serif;background:#050505;margin:0;min-height:100vh;overflow-x:hidden}
-.orb{position:fixed;border-radius:50%;filter:blur(125px);opacity:.38;pointer-events:none;z-index:0;animation:float 12s ease-in-out infinite alternate}
-.orb.one{width:420px;height:420px;background:#d4af37;top:-140px;left:-130px}.orb.two{width:450px;height:450px;background:#8b1e2d;bottom:-190px;right:-120px;animation-delay:-5s}
-@keyframes float{to{transform:translate(55px,70px) scale(1.12)}}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes pulse{0%{box-shadow:0 0 0 0 #d4af3766}70%{box-shadow:0 0 0 20px #d4af3700}100%{box-shadow:0 0 0 0 #d4af3700}}
-.glass{background:linear-gradient(145deg,rgba(30,24,14,.78),rgba(10,10,10,.94));backdrop-filter:blur(22px);border:1px solid #d4af3738;box-shadow:0 24px 70px #0009}
-.ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(transparent 0 38%,#d4af37 72%,#8b1e2d);animation:rotate 2.5s linear infinite}.ring:after{content:"";position:absolute;inset:3px;background:#101010;border-radius:50%}
-.gold{color:#d4af37;text-shadow:0 0 12px #d4af3780}.join{animation:pulse 2.5s infinite}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,Arial,sans-serif;background:#080606;color:#f8fafc}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:36px 18px;overflow-x:hidden;background:radial-gradient(ellipse at 50% 35%,#210707 0%,#100606 48%,#050505 100%)}
+.card{width:min(100%,660px);min-height:975px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:72px 54px 56px;border:1px solid #25303d;border-radius:42px;background:#111111;box-shadow:0 25px 80px #0008}
+.card:before{content:"";position:absolute;top:0;left:0;right:0;height:13px;background:linear-gradient(90deg,#9f1010,#ed1717,#7e0a0a)}
+.logo-wrap{position:relative;width:246px;height:246px;margin:0 auto 43px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle,#390909 0%,#100909 63%,#080808 70%);border:7px solid #e50914;box-shadow:0 0 0 5px #3b1014,0 0 35px #ed101c55,inset 0 0 20px #e5091430}
+.logo-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-radius:50%;background:radial-gradient(ellipse at 50% 25%,#321010,#070707 65%);overflow:hidden}
+.logo-plane{position:absolute;top:18px;font-size:55px;color:#f31a22;transform:rotate(-13deg);text-shadow:0 0 18px #f00}
+.logo-title{position:relative;margin-top:25px;font-weight:1000;font-style:italic;line-height:.86;letter-spacing:-5px;font-size:76px;color:#fff;text-shadow:3px 4px 0 #6f090d}
+.logo-title span{color:#ed101a}
+.logo-sub{font-weight:900;font-style:italic;font-size:24px;letter-spacing:-1px;transform:skew(-10deg);color:#f5f5f5}
+.logo-lines{width:125px;height:17px;margin-top:10px;border-top:5px solid #e50914;border-bottom:4px solid #e50914;position:relative}
+.logo-lines:after{content:"";position:absolute;left:12px;right:12px;top:4px;border-top:3px solid #f52932}
+.live{display:inline-flex;align-items:center;gap:13px;padding:13px 28px;border:1px solid #b70b12;border-radius:99px;color:#ff101a;font-size:20px;font-weight:800;letter-spacing:.8px;background:#180b0b;box-shadow:0 0 25px #ed101a18;margin-bottom:32px}
+.live-dot{width:14px;height:14px;border-radius:50%;background:#ed1010;box-shadow:0 0 13px #ed1010}
+h1{font-size:50px;line-height:1.1;font-weight:900;letter-spacing:1px;margin:0 0 12px;color:#fff}
+h1 span{color:#ed101a}
+.members{font-size:24px;font-weight:800;color:#9ca3af;margin:0 0 47px}.members strong{color:#f8fafc}
+.features{display:flex;align-items:center;justify-content:center;gap:40px;font-size:23px;color:#d1d5db;margin-bottom:51px;white-space:nowrap}
+.features i{color:#ed101a;margin-right:10px;font-size:23px}
+.timer{display:flex;align-items:center;justify-content:center;gap:14px;border:1px solid #25303d;border-radius:22px;background:#080808;padding:19px 26px;margin-bottom:28px;font-size:18px;font-weight:800;color:#9ca3af}
+#timer{font-size:27px;letter-spacing:4px;color:#f10b16;font-variant-numeric:tabular-nums}
+.join{width:100%;min-height:108px;border-radius:100px;border:1px solid #ff4444;background:linear-gradient(100deg,#bd171c,#f00008);color:white;display:flex;align-items:center;justify-content:center;gap:22px;font-size:30px;font-weight:900;letter-spacing:2px;box-shadow:0 0 38px #f00a2438,inset 0 1px #ff7373;cursor:pointer;transition:transform .2s,filter .2s}
+.join:hover{transform:translateY(-2px);filter:brightness(1.1)}.join:disabled{opacity:.7;cursor:wait}.join i{font-size:42px}
+.tagline{font-size:16px;letter-spacing:3px;font-weight:900;color:#4b5563;margin-top:31px}
+#status{min-height:18px;font-size:12px;color:#cbd5e1;margin-top:12px}
+@media(max-width:600px){body{padding:18px 12px}.card{min-height:0;padding:54px 22px 38px;border-radius:30px}.logo-wrap{width:190px;height:190px;margin-bottom:34px}.logo-title{font-size:59px}.logo-sub{font-size:20px}.logo-plane{font-size:42px;top:14px}h1{font-size:36px}.members{font-size:18px;margin-bottom:36px}.live{font-size:16px;padding:11px 22px;margin-bottom:25px}.features{font-size:15px;gap:20px;margin-bottom:38px}.features i{font-size:17px;margin-right:5px}.timer{gap:10px;padding:16px 18px;font-size:13px;border-radius:17px}#timer{font-size:23px;letter-spacing:3px}.join{min-height:82px;font-size:20px;gap:14px;letter-spacing:1px}.join i{font-size:30px}.tagline{font-size:12px;letter-spacing:2px;margin-top:26px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
-<body class="flex items-center justify-center relative px-4 py-8">
-<div class="orb one"></div><div class="orb two"></div>
-<main class="glass relative z-10 w-full max-w-md rounded-[2rem] p-7 sm:p-8 flex flex-col items-center text-center">
-  <div class="relative w-32 h-32 mb-6 mt-2 flex items-center justify-center">
-    <div class="ring"></div>
-    <div class="relative z-10 w-[116px] h-[116px] bg-[#101010] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(212,175,55,.3)]">
-      <i class="fa-brands fa-telegram text-[4.5rem] text-[#D4AF37]" aria-hidden="true"></i>
+<body>
+<main class="card">
+  <div class="logo-wrap" aria-label="B2 Express logo">
+    <div class="logo-inner">
+      <i class="fa-solid fa-plane logo-plane" aria-hidden="true"></i>
+      <div class="logo-title">B2<span>EX</span></div>
+      <div class="logo-sub">EXPRESS</div>
+      <div class="logo-lines"></div>
+      <div style="font-size:7px;font-weight:900;letter-spacing:2px;color:#9ca3af;margin-top:7px">FAST. BOLD. FEARLESS.</div>
     </div>
   </div>
-  <p class="text-xs tracking-[.35em] uppercase text-[#d4af37] font-bold mb-2">Welcome to</p>
-  <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-wide">B2 EXPRESS</h1>
-  <p class="text-gray-300 text-sm leading-6 mb-6">Join our Telegram community and stay connected.</p>
-  <div class="flex items-center justify-center gap-4 w-full mb-7 text-xs sm:text-sm font-semibold text-gray-200 bg-white/5 py-3 px-3 rounded-xl border border-white/10">
-    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-[#d4af37]"></i> Secure access</span>
-    <span class="w-px h-5 bg-white/20"></span>
-    <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-[#d4af37]"></i> Quick join</span>
+  <div class="live"><span class="live-dot"></span> LIVE NOW</div>
+  <h1>B2 <span>EXPRESS</span></h1>
+  <p class="members"><strong>70,301+</strong> active members</p>
+  <div class="features">
+    <span><i class="fa-solid fa-check" aria-hidden="true"></i>100% Free</span>
+    <span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Instant Access</span>
   </div>
-  <div class="w-full bg-black/50 border border-[#D4AF37]/40 rounded-2xl p-4 flex items-center justify-center gap-3 mb-7">
-    <span class="text-gray-300 text-xs font-bold tracking-[.16em] uppercase">Your invite is ready in</span>
-    <span id="timer" class="gold font-extrabold text-2xl tabular-nums">10:00</span>
-  </div>
-  <button id="joinBtn" class="join w-full bg-[#D4AF37] hover:bg-[#B8941F] text-black font-extrabold py-4 px-5 rounded-2xl flex items-center justify-center gap-3 transition duration-300 hover:-translate-y-1 border border-[#F0D778]/40">
-    <i class="fa-brands fa-telegram text-2xl" aria-hidden="true"></i><span id="buttonText" class="text-sm sm:text-base tracking-wider uppercase">JOIN B2 EXPRESS</span>
-  </button>
-  <p id="status" role="status" aria-live="polite" class="text-xs text-gray-300 mt-4 min-h-5"></p>
-  <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-widest"><i class="fa-solid fa-lock mr-1"></i> Secure Telegram invite</p>
+  <div class="timer"><span>OFFER ENDS IN:</span><span id="timer">09:00</span></div>
+  <button id="joinBtn" class="join"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span id="buttonText">JOIN TELEGRAM</span></button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <div class="tagline">FLY HIGH. CASH BIG.</div>
 </main>
 <script>
-const timer=document.getElementById('timer');let seconds=600;
-function tick(){const m=Math.floor(seconds/60),s=seconds%60;timer.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(seconds>0)seconds--}
+const timer=document.getElementById('timer');let seconds=9*60;
+function tick(){timer.textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');if(seconds>0)seconds--}
 tick();setInterval(tick,1000);
 const btn=document.getElementById('joinBtn'),buttonText=document.getElementById('buttonText'),statusEl=document.getElementById('status');
 btn.addEventListener('click',async()=>{
-  btn.disabled=true;btn.style.opacity='.75';buttonText.textContent='PREPARING INVITE…';statusEl.textContent='Creating your secure Telegram invite link…';
+  btn.disabled=true;buttonText.textContent='PREPARING…';statusEl.textContent='Creating your secure Telegram invite link…';
   try{
-    const params=new URLSearchParams(location.search);
-    let referrerHost=null;try{if(document.referrer)referrerHost=new URL(document.referrer).hostname}catch{}
+    const params=new URLSearchParams(location.search);let referrerHost=null;try{if(document.referrer)referrerHost=new URL(document.referrer).hostname}catch{}
     const fbp=document.cookie.match(/(?:^|; )_fbp=([^;]+)/)?.[1]||null;
-    let fbc=document.cookie.match(/(?:^|; )_fbc=([^;]+)/)?.[1]||null;
-    const fbclid=params.get('fbclid');if(!fbc&&fbclid)fbc='fb.1.'+Date.now()+'.'+fbclid;
-    const response=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({
-      source:params.get('utm_source')||(fbclid?'facebook':null),campaign:params.get('utm_campaign'),medium:params.get('utm_medium'),content:params.get('utm_content'),term:params.get('utm_term'),fbclid,landing_referrer:referrerHost,landing_url:location.href,fbp,fbc,user_agent:navigator.userAgent
-    })});
+    let fbc=document.cookie.match(/(?:^|; )_fbc=([^;]+)/)?.[1]||null;const fbclid=params.get('fbclid');if(!fbc&&fbclid)fbc='fb.1.'+Date.now()+'.'+fbclid;
+    const response=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({source:params.get('utm_source')||(fbclid?'facebook':null),campaign:params.get('utm_campaign'),medium:params.get('utm_medium'),content:params.get('utm_content'),term:params.get('utm_term'),fbclid,landing_referrer:referrerHost,landing_url:location.href,fbp,fbc,user_agent:navigator.userAgent})});
     const data=await response.json();if(!response.ok||!data.ok||!data.invite_link)throw new Error(data.error||'Could not create invite');
     location.href=data.invite_link;
-  }catch(e){console.error('Invite creation failed:',e);statusEl.textContent='Invite could not be created right now. Please try again in a moment.';buttonText.textContent='TRY AGAIN';btn.disabled=false;btn.style.opacity='1'}
+  }catch(e){console.error('Invite creation failed:',e);statusEl.textContent='Could not create invite. Check your connection and try again.';buttonText.textContent='TRY AGAIN';btn.disabled=false}
 });
 </script>
 </body>

@@ -1,19 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080606">
 <title>B2 EXPRESS — Join Telegram</title>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- Meta Pixel: select one approved pixel per ad URL using ?pixel_id=PIXEL_ID -->
+<!-- Meta Pixel: approved pixel selected from URL -->
 <script>
 (function(){
   var allowedPixels=['837475619388782'];
-  var requestedPixel=new URLSearchParams(window.location.search).get('pixel_id');
-  var selectedPixel=allowedPixels.includes(requestedPixel)?requestedPixel:'837475619388782';
+  var requestedPixel=new URLSearchParams(location.search).get('pixel_id');
+  var selectedPixel=allowedPixels.includes(requestedPixel)?requestedPixel:allowedPixels[0];
   window.B2_SELECTED_PIXEL_ID=selectedPixel;
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=function(){};n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init',selectedPixel);fbq('track','PageView');
@@ -21,52 +20,67 @@
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=837475619388782&ev=PageView&noscript=1" alt=""></noscript>
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,Arial,sans-serif;background:#080606;color:#f8fafc}
-body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;overflow-x:hidden;background:radial-gradient(ellipse at 50% 20%,#241010 0%,#100909 45%,#050505 100%)}
-.card{width:min(100%,660px);min-height:0;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:54px 48px 42px;border:1px solid #382a2a;border-radius:32px;background:linear-gradient(160deg,#171313 0%,#0d0b0b 70%);box-shadow:0 24px 70px #0009,0 0 0 1px #ffffff05,inset 0 1px #ffffff0a}
-.card:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#8e1218,#fa3038,#8e1218)}
-.logo-wrap{position:relative;width:220px;height:220px;margin:0 auto 30px;display:grid;place-items:center;border-radius:50%;background:#0b0808;border:4px solid #e50914;box-shadow:0 0 0 4px #3b1014,0 0 30px #ed101c35,inset 0 0 16px #e5091420;overflow:hidden}
-.logo-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-radius:50%;background:radial-gradient(ellipse at 50% 25%,#321010,#070707 65%);overflow:hidden}
-.logo-image{display:block;width:100%;height:100%;padding:5px;object-fit:contain;border-radius:50%}
-.logo-plane{position:absolute;top:18px;font-size:55px;color:#f31a22;transform:rotate(-13deg);text-shadow:0 0 18px #f00}
-.logo-title{position:relative;margin-top:25px;font-weight:1000;font-style:italic;line-height:.86;letter-spacing:-5px;font-size:76px;color:#fff;text-shadow:3px 4px 0 #6f090d}
-.logo-title span{color:#ed101a}
-.logo-sub{font-weight:900;font-style:italic;font-size:24px;letter-spacing:-1px;transform:skew(-10deg);color:#f5f5f5}
-.logo-lines{width:125px;height:17px;margin-top:10px;border-top:5px solid #e50914;border-bottom:4px solid #e50914;position:relative}
-.logo-lines:after{content:"";position:absolute;left:12px;right:12px;top:4px;border-top:3px solid #f52932}
-.live{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border:1px solid #572126;border-radius:99px;color:#ff5a61;font-size:14px;font-weight:800;letter-spacing:1.4px;background:#1a0c0d;box-shadow:0 0 22px #ed101a12;margin-bottom:22px}
-.live-dot{width:9px;height:9px;border-radius:50%;background:#ed3038;box-shadow:0 0 10px #ed3038}
-h1{font-size:44px;line-height:1.1;font-weight:900;letter-spacing:.4px;margin:0 0 10px;color:#fff}
-h1 span{color:#ed101a}
-.members{font-size:19px;font-weight:600;color:#a8a0a0;margin:0 0 30px}.members strong{color:#fff;font-weight:800}
-.features{display:flex;align-items:center;justify-content:center;gap:26px;font-size:17px;color:#ded7d7;margin-bottom:30px;white-space:nowrap}
-.features i{color:#ff3b45;margin-right:8px;font-size:18px}
-.timer{display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid #332729;border-radius:16px;background:#090808;padding:15px 22px;margin-bottom:22px;font-size:14px;font-weight:700;color:#a9a0a0}
-#timer{font-size:23px;letter-spacing:3px;color:#ff3942;font-variant-numeric:tabular-nums}
-.join{width:min(100%,440px);margin:0 auto;align-self:center;position:relative;min-height:78px;border-radius:16px;border:1px solid #ff5c62;background:linear-gradient(110deg,#a91119 0%,#e51c27 55%,#b50f18 100%);color:white;display:flex;align-items:center;justify-content:center;gap:15px;font-size:22px;font-weight:850;letter-spacing:1.2px;box-shadow:0 12px 28px #f00a2425,inset 0 1px #ff9a9e;cursor:pointer;transition:transform .2s,filter .2s}
-.join:hover{transform:translateY(-2px);filter:brightness(1.08)}.join:disabled{opacity:.7;cursor:wait}.join i{font-size:28px}
-.tagline{font-size:12px;letter-spacing:2.5px;font-weight:800;color:#756b6b;margin-top:24px}
-#status{width:100%;min-height:18px;font-size:12px;color:#cbd5e1;margin-top:10px;text-align:center}
-@media(max-width:600px){body{padding:16px 12px}.card{min-height:0;padding:38px 20px 30px;border-radius:26px}.logo-wrap{width:176px;height:176px;margin-bottom:26px}h1{font-size:34px}.members{font-size:16px;margin-bottom:26px}.live{font-size:12px;padding:9px 18px;margin-bottom:20px}.features{font-size:14px;gap:18px;margin-bottom:26px}.features i{font-size:15px;margin-right:5px}.timer{gap:9px;padding:13px 15px;font-size:12px;border-radius:14px;margin-bottom:18px}#timer{font-size:21px;letter-spacing:2px}.join{width:100%;min-height:70px;font-size:18px;gap:12px;letter-spacing:.8px;border-radius:14px}.join i{font-size:25px}.tagline{font-size:10px;letter-spacing:1.8px;margin-top:20px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+:root{--red:#e50914;--red-light:#ff3945;--red-dark:#8e1218;--panel:#111010;--text:#f8fafc}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Arial,sans-serif;background:#050505;color:var(--text)}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:28px 16px;overflow-x:hidden;background:radial-gradient(ellipse at 50% 20%,#271010 0%,#100909 48%,#050505 100%)}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(120px);opacity:.35;z-index:0;pointer-events:none;animation:float 12s infinite ease-in-out alternate}
+.orb-1{width:360px;height:360px;background:#e50914;top:-140px;left:-130px}
+.orb-2{width:420px;height:420px;background:#8b1e2d;bottom:-190px;right:-140px;animation-delay:-6s}
+@keyframes float{0%{transform:translate(0,0) scale(1)}100%{transform:translate(45px,55px) scale(1.12)}}
+.glass-card{width:min(100%,420px);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 28px 30px;border:1px solid rgba(229,9,20,.25);border-radius:32px;background:linear-gradient(145deg,rgba(35,19,20,.92),rgba(10,10,10,.96));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 24px 65px #000b,0 0 35px #e5091410,inset 0 1px #ffffff0a;z-index:2}
+.glass-card:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#e50914,#ff626a,#e50914,transparent)}
+.logo-stage{position:relative;width:142px;height:142px;margin:4px auto 25px;display:grid;place-items:center}
+.rotating-ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0%,transparent 28%,#8b1e2d 48%,#ff3945 72%,#8b1e2d 90%,transparent 100%);animation:rotate 3s linear infinite}
+.rotating-ring:after{content:"";position:absolute;inset:3px;background:#100909;border-radius:50%}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.logo-inner{position:relative;z-index:1;width:132px;height:132px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 25%,#321010,#070707 70%);border:2px solid #351013;box-shadow:0 0 28px #e5091425}
+.logo-image{display:block;width:100%;height:100%;object-fit:contain;padding:4px;border-radius:50%}
+.live{display:inline-flex;align-items:center;gap:9px;padding:9px 17px;margin-bottom:17px;border:1px solid #572126;border-radius:99px;color:#ff6a72;font-size:11px;font-weight:800;letter-spacing:1.8px;background:#1a0c0d}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#ed3038;box-shadow:0 0 10px #ed3038;animation:blink 1.5s infinite}
+@keyframes blink{50%{opacity:.45}}
+h1{font-size:32px;line-height:1.15;font-weight:900;letter-spacing:.7px;margin:0 0 9px;color:#fff;text-shadow:0 2px 20px #e5091425}
+h1 span{color:#ff3945}
+.members{font-size:14px;font-weight:600;color:#b8aeae;margin:0 0 23px}
+.members strong{color:#fff;font-weight:800}
+.features{display:flex;align-items:center;justify-content:center;gap:18px;width:100%;margin-bottom:24px;padding:13px 10px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff08;box-shadow:inset 0 1px #ffffff06;font-size:12px;font-weight:700;color:#e8dddd}
+.features i{color:#ff3945;margin-right:6px}
+.feature-divider{width:1px;height:20px;background:#ffffff20}
+.timer{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border:1px solid #682126;border-radius:17px;background:linear-gradient(135deg,#190a0b,#090707);padding:15px;margin-bottom:20px;box-shadow:inset 0 0 22px #e5091409;position:relative;overflow:hidden}
+.timer:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,#e509140c,transparent);pointer-events:none}
+.timer-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#b7a8a8;position:relative}
+#timer{font-size:29px;line-height:1.2;font-weight:900;letter-spacing:4px;color:#ff3945;text-shadow:0 0 14px #e509143c;font-variant-numeric:tabular-nums;position:relative}
+@keyframes pulse-shadow{0%{box-shadow:0 0 0 0 #e5091460}70%{box-shadow:0 0 0 15px #e5091400}100%{box-shadow:0 0 0 0 #e5091400}}
+.join{width:100%;min-height:68px;border-radius:16px;border:1px solid #ff626a;background:linear-gradient(110deg,#a91119,#e51c27 55%,#b50f18);color:white;display:flex;align-items:center;justify-content:center;gap:13px;font-size:17px;font-weight:900;letter-spacing:1.2px;box-shadow:0 12px 28px #f00a2425,inset 0 1px #ff9a9e;cursor:pointer;transition:transform .2s,filter .2s;animation:pulse-shadow 2.5s infinite}
+.join:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.join:disabled{opacity:.72;cursor:wait;animation:none}
+.join i{font-size:25px}
+.secure-note{font-size:10px;color:#938585;margin:19px 0 0;text-transform:uppercase;letter-spacing:1.8px;font-weight:700;opacity:.8}
+#status{width:100%;min-height:16px;font-size:12px;color:#ffb6ba;margin:10px 0 0;text-align:center}
+@media(max-width:480px){body{padding:16px 12px}.glass-card{padding:30px 21px 26px;border-radius:27px}.logo-stage{width:126px;height:126px;margin-bottom:22px}.logo-inner{width:116px;height:116px}h1{font-size:29px}.members{font-size:13px;margin-bottom:20px}.features{gap:12px;font-size:11px;padding:12px 7px}.timer{margin-bottom:17px;padding:14px}.join{min-height:64px;font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<main class="card">
-  <div class="logo-wrap" aria-label="B2 Express logo">
-    <img class="logo-image" src="./b2%20logo.jpg" alt="B2 Express original logo">
+<div class="bg-orb orb-1" aria-hidden="true"></div>
+<div class="bg-orb orb-2" aria-hidden="true"></div>
+<main class="glass-card">
+  <div class="logo-stage" aria-label="B2 Express logo">
+    <div class="rotating-ring" aria-hidden="true"></div>
+    <div class="logo-inner"><img class="logo-image" src="./b2%20logo.jpg" alt="B2 Express logo"></div>
   </div>
   <div class="live"><span class="live-dot"></span> LIVE NOW</div>
   <h1>B2 <span>EXPRESS</span></h1>
   <p class="members"><strong>70,301+</strong> active members</p>
   <div class="features">
-    <span><i class="fa-solid fa-check" aria-hidden="true"></i>100% Free</span>
+    <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>100% Free</span>
+    <span class="feature-divider" aria-hidden="true"></span>
     <span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Instant Access</span>
   </div>
-  <div class="timer"><span>OFFER ENDS IN:</span><span id="timer">09:00</span></div>
-  <button id="joinBtn" class="join"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span id="buttonText">JOIN TELEGRAM</span></button>
+  <div class="timer"><span class="timer-label">Offer Ends In</span><span id="timer">09:00</span></div>
+  <button id="joinBtn" class="join"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span id="buttonText">JOIN CHANNEL</span></button>
   <p id="status" role="status" aria-live="polite"></p>
-  <div class="tagline">FLY HIGH. CASH BIG.</div>
+  <p class="secure-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> &nbsp;Secure &amp; Verified</p>
 </main>
 <script>
 const timer=document.getElementById('timer');let seconds=9*60;

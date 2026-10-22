@@ -10,7 +10,7 @@ Set these in the B2 Express Vercel project (Production, and Preview if needed):
 - `TELEGRAM_CHAT_ID` — target Telegram channel/group ID. The bot must be an administrator and have permission to invite users/manage invite links.
 - `KV_REST_API_URL` — Redis REST endpoint.
 - `KV_REST_API_TOKEN` — Redis REST token.
-- `META_PIXEL_ID` — `837475619388782` (default in code, still set it explicitly in Vercel).
+- `META_PIXEL_ID` — `1098078499505737` (default in code, still set it explicitly in Vercel).
 - `META_CAPI_ACCESS_TOKEN` — access token for this same Meta Pixel.
 - `WEBHOOK_SETUP_SECRET` — a long random secret used to protect webhook setup.
 - Optional: `META_GRAPH_API_VERSION` (defaults to `v24.0`), `META_TEST_EVENT_CODE` (only while testing).

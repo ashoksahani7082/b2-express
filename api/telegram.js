@@ -15,9 +15,9 @@ async function redisCommand(command) {
 
 async function sendMetaSubscribe(attribution, eventTime, eventId, telegramUserId) {
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
-  const allowedPixels = ["1098078499505737"];
-  const requestedPixel = String(attribution?.pixel_id || process.env.META_PIXEL_ID || "1098078499505737");
-  const pixelId = allowedPixels.includes(requestedPixel) ? requestedPixel : "1098078499505737";
+  const allowedPixels = ["2513832369109529"];
+  const requestedPixel = String(attribution?.pixel_id || process.env.META_PIXEL_ID || "2513832369109529");
+  const pixelId = allowedPixels.includes(requestedPixel) ? requestedPixel : "2513832369109529";
   const apiVersion = process.env.META_GRAPH_API_VERSION || "v24.0";
   const testEventCode = process.env.META_TEST_EVENT_CODE;
   if (!accessToken) throw new Error("META_CAPI_ACCESS_TOKEN is not configured");

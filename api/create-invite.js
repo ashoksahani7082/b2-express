@@ -17,6 +17,13 @@ export default async function handler(req, res) {
 
   try {
     const body = req.body || {};
+    console.log("B2 Express create-invite request received", {
+      method: req.method,
+      source: typeof body.source === "string" ? body.source : null,
+      campaign: typeof body.campaign === "string" ? body.campaign : null,
+      has_fbclid: Boolean(body.fbclid),
+      pixel_id: typeof body.pixel_id === "string" ? body.pixel_id : null
+    });
     const clean = (value, max = 200) => {
       if (typeof value !== "string") return null;
       const trimmed = value.trim();
@@ -78,6 +85,13 @@ export default async function handler(req, res) {
       console.error("Redis mapping save failed", redisData);
       return res.status(502).json({ ok: false, error: "Could not save attribution mapping" });
     }
+
+    console.log("B2 Express invite created and attribution saved", {
+      click_id: clickId,
+      source: attribution.source,
+      campaign: attribution.campaign,
+      pixel_id: selectedPixel
+    });
 
     return res.status(200).json({ ok: true, invite_link: inviteLink, click_id: clickId });
   } catch (error) {
